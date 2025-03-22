@@ -1,0 +1,8 @@
+body{
+    text-align: center;
+    border-style: dotted;
+    border-color: black;
+    background-color: rgb(116, 195, 195);
+    width: 300px;
+    margin: 20px;
+}

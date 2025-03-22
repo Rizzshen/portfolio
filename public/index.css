@@ -2,5 +2,10 @@
     margin: auto;
 }
 h1{
-    color: rgb(198, 72, 72);
+    color: rgb(173, 63, 63);
+}
+body{
+    text-align: center;
+    background-color:rgb(110, 174, 156);
+    color:rgb(74, 34, 34);
 }
