@@ -1,0 +1,23 @@
+{
+  "name": "project-portfolio",
+  "version": "1.0.0",
+  "description": "for portfolio",
+  "homepage": "https://github.com/Rizzshen/portfolio#readme",
+  "bugs": {
+    "url": "https://github.com/Rizzshen/portfolio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Rizzshen/portfolio.git"
+  },
+  "license": "MIT",
+  "author": "Rishen",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
