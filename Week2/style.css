@@ -1,0 +1,333 @@
+/* ------------------------------
+   Typography & Global
+------------------------------ */
+body {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f7f7f7;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+*{
+	margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+
+/* ------------------------------
+   HERO SECTION
+------------------------------ */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 520px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+
+/* Video background */
+#video {
+    position: absolute;
+    inset: 0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Dark overlay */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom right,
+        rgba(6, 10, 20, 0.45),
+        rgba(6, 10, 20, 0.55)
+    );
+    z-index: 1;
+}
+
+/* Hero content container */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: 2rem 1rem;
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Hero title */
+.hero-title {
+    margin: 0;
+    font-weight: 800;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-size: clamp(2.8rem, 8vw, 6.5rem);
+    text-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* Navigation inside hero (white links) */
+.hero nav ul a {
+    color: #fff !important;
+}
+
+/* Navigation container */
+.navigation {
+    display: inline-flex;
+    background: rgba(255, 255, 255, 0.08);   /* faint light pill - visible over video */
+  	backdrop-filter: blur(8px);   
+    align-items: center;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(2,8,23,0.35);
+    z-index: 3;
+    padding: 8px 18px;
+}
+
+/* Nav list */
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 40px;
+    margin: 0;
+    list-style: none;
+}
+
+/* Nav links */
+nav ul a {
+    text-decoration: none;
+    padding: 5px;
+    font-size: 20px;
+    color: black; /* overridden in hero */
+    transition: opacity 0.3s;
+}
+
+nav ul a:hover {
+    opacity: 0.7;
+}
+
+
+/* ------------------------------
+   SECTIONS (About, Projects, Form)
+------------------------------ */
+#About,
+#projects,
+#form,
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    margin-bottom: 40px;
+
+}
+
+.about-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: 40px;
+    width: 60%;
+    border: 1px;
+    box-shadow: 0 6px 18px rgba(2,8,23,0.35);
+    
+    border-radius: 20px;
+}
+/* About text */
+.about-text {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    max-width: 600px;
+    color: #333;
+}
+
+/* Profile photo */
+.profile-photo img {
+    width: 220px;
+    height: 250px;
+    border-radius: 20%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-photo img:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ------------------------------
+   PROJECTS
+------------------------------ */
+#projects ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+    padding: 2px;
+}
+
+#projects li {
+    max-width: 260px;
+    background: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#projects li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+#projects img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* ------------------------------
+   FORM
+------------------------------ */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 3px;
+    padding: 40px;
+    width: 50%;
+    border: 1px;
+    box-shadow: 0 6px 18px rgba(2,8,23,0.35);
+    
+    border-radius: 20px;
+}
+
+input,
+textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+textarea {
+    height: 100px;
+}
+
+button {
+    background-color: #0a1a2f;
+    color: whitesmoke;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 30px;
+    transition: opacity 0.3s;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+footer {
+    background-color: #0a1a2f;
+    color: whitesmoke;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    border-top: 3px solid #0f2a4f;
+}
+
+
+/* ------------------------------
+   RESPONSIVE
+------------------------------ */
+@media (max-width: 900px) {
+    nav ul { gap: 20px; }
+
+    .about-text {
+        max-width: 90%;
+        font-size: 17px;
+    }
+
+    #projects li {
+        max-width: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul a { font-size: 18px; }
+
+    .profile-photo img {
+        width: 160px;
+        height: 160px;
+    }
+
+    h2 { font-size: 26px; }
+
+    #projects li {
+        max-width: 300px;
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul a {
+        font-size: 16px;
+    }
+
+    .profile-photo img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .about-text {
+        font-size: 16px;
+        line-height: 1.6;
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    h2 { font-size: 22px; }
+
+    form { width: 90%; }
+
+    #projects li {
+        max-width: 100%;
+    }
+}

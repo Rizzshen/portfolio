@@ -1,0 +1,240 @@
+h1{
+	color: whitesmoke;
+	padding: 10px;
+}
+h2{
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+body{
+	font-family: "Poppins", sans-serif;
+	margin: 0px;
+	color: #333;
+	padding: 0px;
+	background-color: #f7f7f7;
+}
+
+header{
+	background-color: #0a1a2f;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 30px; /* added spacing */
+}
+
+
+.navigation{
+	display: flex;
+	align-items: center;
+}
+nav ul{
+	display: flex;
+	justify-content: space-evenly;
+	list-style: none;
+	align-items:center;
+	margin: 0;
+	gap: 40px;
+}
+ul a{
+	text-decoration: none;
+	padding: 5px;
+	color: whitesmoke;
+	font-size: 20px;
+	transition: opacity 0.3s;
+}
+ul a:hover{
+	opacity: 0.7;
+}
+
+/* Section containers */
+#About, #projects, #form, footer{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 40px; /* improved spacing */
+	padding: 20px;
+}
+
+/* Profile photo hover effect */
+.profile-photo img{
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	box-shadow: 0px 2px 8px rgba(0,0,0,0.2); /* subtle shadow */
+}
+.profile-photo img:hover{
+	transform: scale(1.08);
+	box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
+}
+
+
+.About {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px; 
+}
+.about-text {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+  text-align: left;
+  font-size: 18px;
+}
+
+
+#projects ul{
+	list-style: none;
+	padding: 0;
+	display: flex;
+	gap: 40px;
+	flex-wrap: wrap; /* makes mobile friendly */
+	justify-content: center;
+}
+#projects li{
+	text-align: center;
+	max-width: 260px;
+	background: white;
+	padding: 15px;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#projects li:hover{
+	transform: translateY(-5px);
+	box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+}
+#projects img{
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+
+form{
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	gap: 10px;
+}
+input, textarea{
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	padding: 10px;
+	font-size: 16px;
+}
+textarea{
+	height: 100px;
+}
+
+
+button{
+	border-radius: 30px;
+	border: none;
+	background-color: #0a1a2f;
+	color: whitesmoke;
+	padding: 12px;
+	margin-top: 10px;
+	transition: opacity 0.3s;
+}
+button:hover{
+	opacity: 0.8;
+}
+
+
+footer{
+	background-color: #0a1a2f;
+	color: whitesmoke;
+	padding: 20px;
+	text-align: center;
+	width: 100%;
+	border-top: 3px solid #0f2a4f;
+}
+
+@media (max-width: 900px) {
+
+	header {
+		padding: 10px 20px;
+	}
+
+	nav ul {
+		gap: 20px;
+	}
+
+	.about-text {
+		font-size: 17px;
+		max-width: 90%;
+	}
+
+	#projects li {
+		max-width: 220px;
+	}
+}
+
+/* Small tablets + large phones */
+@media (max-width: 768px) {
+
+	header {
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	nav ul a {
+		font-size: 18px;
+	}
+
+	.profile-photo img {
+		width: 160px;
+		height: 160px;
+	}
+
+	h2 {
+		font-size: 26px;
+	}
+
+	#projects li {
+		max-width: 300px;
+		width: 90%;
+	}
+}
+
+/* Phones */
+@media (max-width: 480px) {
+
+	nav ul {
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	nav ul a {
+		font-size: 16px;
+	}
+
+	.profile-photo img {
+		width: 130px;
+		height: 130px;
+	}
+
+	.about-text {
+		font-size: 16px;
+		line-height: 1.6;
+		max-width: 100%;
+		padding: 0 10px;
+	}
+
+	h2 {
+		font-size: 22px;
+	}
+
+	form {
+		width: 90%;
+	}
+
+	#projects li {
+		max-width: 100%;
+	}
+
+}

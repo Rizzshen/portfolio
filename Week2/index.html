@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header class="hero">
+        <video id="video" autoplay loop muted playsinline>
+            <source src="Video/mov_bbb.mp4" type="video/mp4">
+        </video>
+
+        <div class = "hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Rishen.</h1>
+            <div class="navigation">
+                <nav>
+                    <ul>
+                        <li><a href="#About">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#form">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+        
+    </header>
+
+    <section id="About">
+        <div><h2>About Me</h2></div>
+        <div class = "about-box">           
+            <div class="profile-photo">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.zPoWAacthAlfYpQGZzZHUgHaEK%3Fpid%3DApi&f=1&ipt=418c9cb4eec8351ca8bc1fde23609a0617d3c09dc6cefb8ffd5018969954b240" alt="profile photo">
+            </div>
+
+
+            <div>
+                <p class = "about-text">
+                    I am a computer science student who loves building web apps, learning new technologies, 
+                    and improving my skills every day. I enjoy creating clean, functional projects and constantly 
+                    exploring how things work behind the scenes.
+                </p>
+            </div>
+        </div>
+        
+    </section>
+
+    <section id="projects">
+        <div><h2>Projects</h2></div>
+
+        <div>
+            <ul>
+
+
+                <li>
+                    <img alt="project img" src="Images/weatherapp7.png">
+                    <p>Weather App – A simple weather application that fetches real-time data using an API.</p>
+                </li>
+
+
+                <li>
+                    <img alt="project2 img" src="Images/Screenshot 2025-11-23 232056.png">
+                    <p>Task Manager – A basic CRUD task manager built to practice DOM and JavaScript logic.</p>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+
+    <section id="form">
+        <h2>Contact Form</h2>
+        <form id="form-input">
+            <label>Name:</label>
+            <input id="name" placeholder="name">
+
+            <label>Email:</label>
+            <input type="Email" id="email" placeholder="email">
+
+            <label>Message:</label>
+            <textarea placeholder="Message" id="Message"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+        <p id="form-output"></p>
+    </section>
+
+    <footer>
+        <p>© 2025 Rishen. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
