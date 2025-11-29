@@ -19,6 +19,55 @@ h2 {
     font-size: 30px;
     margin-bottom: 10px;
 }
+/* ------------------------------
+   Hamburger SECTION
+------------------------------ */
+.menu-toggle {
+    position: fixed;
+    top: 0;
+    right: 0;     /* or left: 0; */
+    margin: 1rem;
+    z-index: 9999;
+    font-size: 2rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+}
+/* Hidden by default */
+#nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0a1a2f;
+    color: white;
+    padding: 1.5rem 1rem;
+    transform: translateY(-100%); /* Hide above screen */
+    transition: transform 0.3s ease-in-out;
+    z-index: 9998;
+}
+
+/* When .open is added */
+#nav-menu.open {
+    transform: translateY(0); /* Slide into view */
+}
+
+/* Navigation links */
+#nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#nav-menu li {
+    margin: 1rem 0;
+}
+
+#nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
 
 
 /* ------------------------------

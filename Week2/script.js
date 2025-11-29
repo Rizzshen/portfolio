@@ -20,6 +20,22 @@ form.addEventListener("submit", function(e){
 	}
 	else{
 		output.innerText = "Thank you for your message I will keep in Touch";
-		output.sytle.color = "green";
+		output.style.color = "green";
+		form.reset();
 	}
 })
+
+const menuButton = document.getElementById("menu-button");
+const navMenu = document.getElementById("nav-menu");
+
+menuButton.addEventListener("click", () => {
+    // Toggle .open on the navigation
+    navMenu.classList.toggle("open");
+
+    // Update the button icon
+    const isOpen = navMenu.classList.contains("open");
+    menuButton.textContent = isOpen ? "✖" : "☰";
+
+    // Update aria-expanded for accessibility
+    menuButton.setAttribute("aria-expanded", isOpen);
+});
