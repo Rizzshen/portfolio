@@ -12,11 +12,14 @@ form.addEventListener("submit", function(e){
 	}
 	else if(inputMessage.value == ""){
 		output.innerText = "Please Enter your Message"
+		output.style.color = "red";
 	}
 	else if(inputEmail.value == ""){
 		output.innerText = "Please Enter your Email"
+		output.style.color = "red"
 	}
 	else{
-		output.innerText = "form Submitted";
+		output.innerText = "Thank you for your message I will keep in Touch";
+		output.sytle.color = "green";
 	}
 })
