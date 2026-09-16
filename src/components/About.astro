@@ -1,0 +1,27 @@
+---
+const skillGroups = [
+  { label: "Backend", items: ["Node.js", "Express", "Django", "Flask", "REST APIs"] },
+  { label: "Frontend", items: ["React", "HTML5", "CSS3", "JavaScript"] },
+  { label: "Databases", items: ["PostgreSQL", "MongoDB", "MySQL", "Supabase"] }
+];
+---
+<section id="about">
+  <h2>About</h2>
+  <p style="margin-top: 1.5rem;">
+    Computer Science student in Kathmandu, building full-stack applications
+    with a focus on backend systems, APIs, and database design. I learn best
+    by shipping — Hestia and Kharcha are both live, not just repos.
+  </p>
+  <div style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;">
+    {skillGroups.map((g) => (
+      <div>
+        <h3 style="font-size: var(--fs-body); color: var(--text-muted); font-weight: 500; margin-bottom: 0.75rem;">
+          {g.label}
+        </h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          {g.items.map((i) => <span class="tag">{i}</span>)}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

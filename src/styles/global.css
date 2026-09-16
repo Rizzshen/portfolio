@@ -1,0 +1,147 @@
+:root {
+  /* Color */
+  --bg: #0f1115;
+  --surface: #1a1d23;
+  --surface-raised: #21242b;
+  --text: #e8e8e8;
+  --text-muted: #8b8f98;
+  --accent: #f5a623;
+  --accent-dim: #b9791a;
+
+  /* Type scale (major third-ish, tuned by hand) */
+  --fs-tag: 0.8125rem;
+  --fs-body: 1rem;
+  --fs-lead: 1.25rem;
+  --fs-h3: 1.75rem;
+  --fs-h2: 2.75rem;
+  --fs-h1: clamp(2.75rem, 6vw, 5rem);
+
+  /* Spacing */
+  --space-section: clamp(4rem, 12vw, 9rem);
+  --content-max: 72ch;
+  --page-max: 1200px;
+  --edge-pad: clamp(1.25rem, 5vw, 4rem);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+section {
+  padding: var(--space-section) var(--edge-pad);
+  max-width: var(--page-max);
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+}
+h2 {
+  font-size: var(--fs-h2);
+}
+h3 {
+  font-size: var(--fs-h3);
+}
+
+p {
+  max-width: var(--content-max);
+  color: var(--text-muted);
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.tag {
+  display: inline-block;
+  font-size: var(--fs-tag);
+  color: var(--text-muted);
+  border: 1px solid var(--surface-raised);
+  border-radius: 4px;
+  padding: 0.25rem 0.625rem;
+}
+#cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.15s ease,
+    height 0.15s ease,
+    background 0.15s ease;
+}
+
+#cursor.cursor--hover {
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: 1px solid var(--accent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+
+@media (hover: none) {
+  #cursor {
+    display: none;
+  }
+}

@@ -1,0 +1,38 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <div id="cursor"></div>
+        <script>
+      const cursor = document.getElementById("cursor");
+
+      window.addEventListener("mousemove", (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+      });
+
+      const interactive = document.querySelectorAll("a, button");
+      interactive.forEach((el) => {
+        el.addEventListener("mouseenter", () => cursor.classList.add("cursor--hover"));
+        el.addEventListener("mouseleave", () => cursor.classList.remove("cursor--hover"));
+      });
+    </script>
+  </body>
+</html>
