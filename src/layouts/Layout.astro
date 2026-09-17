@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Nav from "../components/Nav.astro";
 
 interface Props {
   title: string;
@@ -16,11 +17,15 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
   <body>
+    <Nav />
     <slot />
     <div id="cursor"></div>
-        <script>
+    <script>
       const cursor = document.getElementById("cursor");
 
       window.addEventListener("mousemove", (e) => {
@@ -28,26 +33,27 @@ const { title, description } = Astro.props;
         cursor.style.top = `${e.clientY}px`;
       });
 
-      const interactive = document.querySelectorAll("a, button");
+      const interactive = document.querySelectorAll("a, button, .cursor-target");
       interactive.forEach((el) => {
         el.addEventListener("mouseenter", () => cursor.classList.add("cursor--hover"));
         el.addEventListener("mouseleave", () => cursor.classList.remove("cursor--hover"));
       });
+
       const revealEls = document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
 
-revealEls.forEach((el) => observer.observe(el));
+      revealEls.forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>

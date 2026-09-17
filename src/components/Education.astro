@@ -1,0 +1,30 @@
+---
+const education = [
+  {
+    degree: "BSc (Hons) Computer Science",
+    place: "Herald College Kathmandu — University of Wolverhampton, UK",
+    period: "2024–2027 (Expected)"
+  },
+  {
+    degree: "+2 Science",
+    place: "Pathsala Pre-University College",
+    period: ""
+  }
+];
+---
+<section id="education" class="reveal">
+  <h2>Education</h2>
+  <div class="timeline">
+    {education.map((e) => (
+      <div class="timeline-item">
+        <h3>{e.degree}</h3>
+        <p style="margin: 0.4rem 0 0;">{e.place}</p>
+        {e.period && (
+          <span class="tag" style="margin-top: 0.75rem; display: inline-block;">
+            {e.period}
+          </span>
+        )}
+      </div>
+    ))}
+  </div>
+</section>

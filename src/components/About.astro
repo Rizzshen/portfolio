@@ -1,26 +1,56 @@
 ---
 const skillGroups = [
-  { label: "Backend", items: ["Node.js", "Express", "Django", "Flask", "REST APIs"] },
-  { label: "Frontend", items: ["React", "HTML5", "CSS3", "JavaScript"] },
-  { label: "Databases", items: ["PostgreSQL", "MongoDB", "MySQL", "Supabase"] }
+  {
+    label: "Backend",
+    items: ["Node.js", "Express", "NestJS", "Django", "Flask", "REST APIs"],
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><circle cx="7" cy="7" r="0.5" fill="currentColor"/><circle cx="7" cy="17" r="0.5" fill="currentColor"/></svg>`
+  },
+  {
+    label: "Frontend",
+    items: ["React", "HTML5", "CSS3", "JavaScript"],
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 8h18"/><circle cx="6" cy="6" r="0.5" fill="currentColor"/></svg>`
+  },
+  {
+    label: "Databases",
+    items: ["PostgreSQL", "MongoDB", "MySQL", "Supabase"],
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>`
+  }
 ];
 ---
 <section id="about" class="reveal">
-  <h2>About</h2>
-  <p style="margin-top: 1.5rem;">
-    Computer Science student in Kathmandu, building full-stack applications
-    with a focus on backend systems, APIs, and database design. I learn best
-    by shipping — Hestia and Kharcha are both live, not just repos.
-  </p>
-  <div style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;">
-    {skillGroups.map((g) => (
-      <div>
-        <h3 style="font-size: var(--fs-body); color: var(--text-muted); font-weight: 500; margin-bottom: 0.75rem;">
-          {g.label}
-        </h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          {g.items.map((i) => <span class="tag">{i}</span>)}
+  <div class="about-grid">
+    <div>
+      <h2 class="cursor-target">Full-stack developer,<br />backend-leaning.</h2>
+      <p style="margin-top: 1.5rem;">
+        Computer Science student in Kathmandu, building full-stack
+        applications with a focus on backend systems, APIs, and database
+        design.
+      </p>
+    </div>
+    <div>
+      <p style="font-size: var(--fs-h3); line-height: 1.3;">
+        I learn best by shipping — not just writing code that works, but
+        code that's live.
+      </p>
+      <div class="about-stats">
+        <div>
+          <span class="stat-num">2</span>
+          <span class="stat-label">Live Projects</span>
         </div>
+        <div>
+          <span class="stat-num">12+</span>
+          <span class="stat-label">Technologies</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="skill-cards">
+    {skillGroups.map((g, i) => (
+      <div class={`skill-card ${i === 0 ? "skill-card--accent" : ""}`}>
+        <div class="skill-icon" set:html={g.icon} />
+        <h3>{g.label}</h3>
+        <p style="margin: 0; font-size: var(--fs-tag);">{g.items.join(" · ")}</p>
       </div>
     ))}
   </div>
