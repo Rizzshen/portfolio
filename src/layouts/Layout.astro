@@ -17,6 +17,7 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <script is:inline>
       document.documentElement.classList.add("js");
     </script>
@@ -33,11 +34,59 @@ const { title, description } = Astro.props;
         cursor.style.top = `${e.clientY}px`;
       });
 
-      const interactive = document.querySelectorAll("a, button, .cursor-target");
-      interactive.forEach((el) => {
-        el.addEventListener("mouseenter", () => cursor.classList.add("cursor--hover"));
-        el.addEventListener("mouseleave", () => cursor.classList.remove("cursor--hover"));
-      });
+      const linkEls = document.querySelectorAll("a, button");
+const textEls = document.querySelectorAll(".cursor-target");
+
+linkEls.forEach((el) => {
+  el.addEventListener("mouseenter", () => cursor.classList.add("cursor--hover"));
+  el.addEventListener("mouseleave", () => cursor.classList.remove("cursor--hover"));
+});
+const lens = document.createElement("div");
+lens.className = "magnify-lens";
+const lensContent = document.createElement("div");
+lensContent.className = "magnify-lens-content";
+lens.appendChild(lensContent);
+document.body.appendChild(lens);
+
+const ZOOM = 1.4;
+const LENS_SIZE = 140;
+
+function setupMagnify(el) {
+el.addEventListener("mouseenter", () => {
+  const cs = getComputedStyle(el);
+  const rect = el.getBoundingClientRect();
+  lensContent.style.width = `${rect.width}px`;
+  lensContent.style.top = "0px";
+  lensContent.style.left = "0px";
+  lensContent.style.fontSize = cs.fontSize;
+  lensContent.style.fontWeight = cs.fontWeight;
+  lensContent.style.fontFamily = cs.fontFamily;
+  lensContent.style.letterSpacing = cs.letterSpacing;
+  lensContent.style.lineHeight = cs.lineHeight;
+  lensContent.style.color = cs.color;
+  lensContent.innerHTML = el.innerHTML;
+  lens.classList.add("is-active");
+  cursor.style.opacity = "0";
+});
+
+  el.addEventListener("mousemove", (e) => {
+    const rect = el.getBoundingClientRect();
+    const relX = e.clientX - rect.left;
+    const relY = e.clientY - rect.top;
+
+    lens.style.left = `${e.clientX - LENS_SIZE / 2}px`;
+    lens.style.top = `${e.clientY - LENS_SIZE / 2}px`;
+
+    lensContent.style.transform = `scale(${ZOOM}) translate(${-relX + LENS_SIZE / (2 * ZOOM)}px, ${-relY + LENS_SIZE / (2 * ZOOM)}px)`;
+  });
+
+el.addEventListener("mouseleave", () => {
+  lens.classList.remove("is-active");
+  cursor.style.opacity = "1";
+});
+}
+
+document.querySelectorAll(".cursor-target").forEach(setupMagnify);
 
       const revealEls = document.querySelectorAll(".reveal");
 
